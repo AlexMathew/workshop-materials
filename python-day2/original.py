@@ -52,6 +52,7 @@ def fibonacci(n):
     # Add your code here
     pass
 
+
 def test(function, input, expected):
     print('\nCASE :', input )
     try:
@@ -70,15 +71,15 @@ def main():
 
     print('\nB. dict_with_lengths')
     print('====================')
-    test(dict_with_lengths, ["apple", "ball", "cat", "dog", "egg", "fruit"], {3: ["ball", "cat", "dog"], 4: ["ball"], 5: ["apple", "fruit"]})
+    test(dict_with_lengths, ["apple", "ball", "cat", "dog", "egg", "fruit"], {3: ["cat", "dog", "egg"], 4: ["ball"], 5: ["apple", "fruit"]})
     test(dict_with_indexes, [], {})
     test(dict_with_lengths, ["word1", "word2", "word3"], {5: ["word1", "word2", "word3"]})
 
     print('\nC. fibonacci')
     print('============')
-    print(f'n = {5}')
+    print(f'\nn = {5}')
     fibonacci(5)
-    print(f'n = {10}')
+    print(f'\nn = {10}')
     fibonacci(10)
 
 

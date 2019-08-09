@@ -16,9 +16,7 @@ def dict_with_indexes(words):
     INPUT: ["apple", "ball", "cat", "dog"]
     OUTPUT: {0: "apple", 1: "ball", 2: "cat", 3: "dog"}
     """
-
-    # Add your code here
-    return
+    return {index: word for index, word in enumerate(words)}
 
 
 # B. dict_with_lengths
@@ -31,9 +29,33 @@ def dict_with_lengths(words):
     INPUT: ["apple", "ball", "cat", "dog", "egg", "fruit"]
     OUTPUT: {3: ["ball", "cat", "dog"], 4: ["ball"], 5: ["apple", "fruit"]}
     """
+    """
+    This solution can be gradually improved from the original solution you had.
 
-    # Add your code here
-    return
+    # SOLUTION 1
+    answer = dict()
+    for word in words:
+        key = len(word)
+        key_words = answer.get(key, [])
+        key_words.append(word)
+        answer[key] = key_words
+
+    # SOLUTION 2
+    answer = dict()
+    for word in words:
+        key = len(word)
+        answer.setdefault(key, [])
+        answer[key].append(word)
+    """
+    # SOLUTION 3
+    from collections import defaultdict
+
+    answer = defaultdict(list)
+    for word in words:
+        key = len(word)
+        answer[key].append(word)
+
+    return answer
 
 
 # C. fibonacci
@@ -50,9 +72,19 @@ def fibonacci(n):
     INPUT: 10
     OUTPUT: 0 1 1 2 3 5 8 13 21 34
     """
+    def generate_fibonacci(n):
+        a = 0
+        b = 1
+        yield a
+        yield b
+        for i in range(n-2):
+            c = a + b
+            a = b
+            b = c
+            yield b
 
-    # Add your code here
-    pass
+    for value in generate_fibonacci(n):
+        print(value)
 
 
 def test(function, input, expected):

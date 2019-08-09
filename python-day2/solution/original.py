@@ -1,6 +1,4 @@
 """
-Now that we've finished our session on Python idioms, let's revisit the previous exercise!
-
 Fill in the definitions for the required functions. The main functions and the testing
 has been handled, so when you run a program, you will get an output of how many testcases
 passed and how many didn't.
@@ -16,9 +14,12 @@ def dict_with_indexes(words):
     INPUT: ["apple", "ball", "cat", "dog"]
     OUTPUT: {0: "apple", 1: "ball", 2: "cat", 3: "dog"}
     """
+    answer = dict()
+    words_count = len(words)
+    for i in range(words_count):
+        answer[i] = words[i]
 
-    # Add your code here
-    return
+    return answer
 
 
 # B. dict_with_lengths
@@ -31,9 +32,15 @@ def dict_with_lengths(words):
     INPUT: ["apple", "ball", "cat", "dog", "egg", "fruit"]
     OUTPUT: {3: ["ball", "cat", "dog"], 4: ["ball"], 5: ["apple", "fruit"]}
     """
+    answer = dict()
+    for word in words:
+        key = len(word)
+        if key in answer:
+            answer[key].append(word)
+        else:
+            answer[key] = [word]
 
-    # Add your code here
-    return
+    return answer
 
 
 # C. fibonacci
@@ -50,9 +57,17 @@ def fibonacci(n):
     INPUT: 10
     OUTPUT: 0 1 1 2 3 5 8 13 21 34
     """
+    # You can also use a recursive function if you feel like it's the better solution
 
-    # Add your code here
-    pass
+    a = 0
+    b = 1
+    print(a)
+    print(b)
+    for i in range(n-2):
+        c = a + b
+        a = b
+        b = c
+        print(b)
 
 
 def test(function, input, expected):
